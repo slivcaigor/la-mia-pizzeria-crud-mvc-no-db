@@ -1,0 +1,80 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Add a new menu listing";
+    @model Listing
+}
+
+<h1 class="text-center text-xl">Add a new @ViewData["Type"] listing</h1>
+<div class="flex items-center justify-center p-12 max-w-screen-xl mx-auto">
+    <div class="mx-auto w-full max-w-[550px]">
+        <form method="post" asp-controller="Create" asp-action="Create" asp-route-type="@ViewData["Type"]">
+            @Html.AntiForgeryToken()
+            <div class="mb-5">
+                <label for="Id"
+                       class="mb-3 block text-base font-medium">
+                    Id
+                </label>
+                <input asp-for="Id"
+                       placeholder="Id"
+                       class="w-full rounded-md test-black border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                <span asp-validation-for="Id" class="text-red-500"></span>
+            </div>
+            <div class="mb-5">
+                <label for="Name"
+                       class="mb-3 block text-base font-medium ">
+                    Name
+                </label>
+                <input asp-for="Name"
+                       placeholder="Name"
+                       class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                <span asp-validation-for="Name" class="text-red-500"></span>
+            </div>
+            <div class="mb-5">
+                <label for="subject"
+                       class="mb-3 block text-base font-medium ">
+                    Image
+                </label>
+                <input asp-for="Image"
+                       placeholder="Image"
+                       class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                <span asp-validation-for="Image" class="text-red-500"></span>
+            </div>
+            <div class="mb-5">
+                <label for="Price"
+                       class="mb-3 block text-base font-medium ">
+                    Price
+                </label>
+                <input asp-for="Price"
+                       placeholder="Price"
+                       class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                <span asp-validation-for="Price" class="text-red-500"></span>
+            </div>
+            <div class="mb-5">
+                <label for="Description"
+                       class="mb-3 block text-base font-medium ">
+                    Description
+                </label>
+                <input asp-for="Description"
+                       placeholder="Description"
+                       class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                <span asp-validation-for="Description" class="text-red-500"></span>
+            </div>
+            <div class="mb-5">
+                <label for="subject"
+                       class="mb-3 block text-base font-medium ">
+                    IsNew
+                </label>
+                <input asp-for="IsNew"
+                       placeholder="IsNew"
+                       class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                <span asp-validation-for="IsNew" class="text-red-500"></span>
+            </div>
+            <div>
+                <button class="btn-primary rounded-md py-3 px-8 text-base font-semibold text-white outline-none">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+

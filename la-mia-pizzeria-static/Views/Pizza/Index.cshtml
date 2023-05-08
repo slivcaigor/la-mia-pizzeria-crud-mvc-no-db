@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Bringing a slice of happiness to your doorstep";
+    @model List<Listing>
+}
+
+@section _Jumbotron {
+    @await Html.PartialAsync("_PizzaJumbotron")
+}
+
+
+<!-- Menu Section -->
+<div class="max-w-screen-xl mx-auto">
+    <div class="flex justify-between my-4">
+        <h1 class="font-bold text-6xl">Menu</h1>
+        <a class="btn-primary btn text-white font-bold py-2 px-4 rounded" href="@Url.Action("create", "pizza", new { type = "pizza" })"> Create New Pizza Listing</a>
+    </div>
+
+
+    <!-- Listings -->
+    <div class="grid-cols-3	grid">
+
+        @foreach (Listing listing in Model)
+        {
+            <div class="card w-96 bg-base-100 shadow-xl">
+                <figure><img src="@listing.Image" /></figure>
+                <div class="card-body">
+                    <h2 class="card-title">
+                        @listing.Name
+                        @if (listing.IsNew)
+                        {
+                            <span class="badge badge-secondary">NEW</span>
+                        }
+                    </h2>
+                    <p>@listing.Description</p>
+                    <div class="card-actions items-center justify-between">
+                        <span class="font-bold text-2xl">$@listing.Price</span>
+                        <a href="@Url.Action("details", "pizza", new { id = listing.Id })" class="btn btn-primary">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

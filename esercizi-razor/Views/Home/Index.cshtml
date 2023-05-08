@@ -1,0 +1,124 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="text-center">
+    <h6>
+        Dichiarare una variabile valorizzandola con il nostro nome.<br />
+        Dichiarare un'altra variabile valorizzandola con il nostro cognome.<br />
+        Stampare il nostro nome e cognome all'interno di un tag h2.
+    </h6>
+
+    @{
+        var name = "Bob";
+        var surname = "Bob";
+    }
+
+    <h2>@name @surname</h2>
+
+    <!--===========================================================================================-->
+
+    <h6>
+        Creare una funzione che stampa la somma dei numeri che vanno da 1 a n (con n passato come parametro - n incluso)<br />
+        Stampare dentro uno span il risultato.
+    </h6>
+
+    @functions {
+        int SumNumbers(int n)
+        {
+            int sum = 0;
+            for (int i = 1; i <= n; i++)
+            {
+                sum += i;
+            }
+            return sum;
+        }
+    }
+
+    @{
+        int n = 8;
+        int result = SumNumbers(n);
+    }
+
+    <h2>La somma dei numeri da 1 a @n è: @result</h2>
+
+    <!--===========================================================================================-->
+
+    <h6>
+        Contare quante volte la lettera a è presente nalla frase "nel mezzo del cammin di nostra vita" e stampare questo valore in pagina
+    </h6>
+
+    @{
+        string phrase = "nel mezzo del cammin di nostra vita";
+        int countA = phrase.Count(c => c == 'a' || c == 'A');
+    }
+
+    <h2>La lettera 'a' compare @countA volte nella frase "@phrase".</h2>
+
+
+    <!--===========================================================================================-->
+
+    <h6>
+        Creare una List<int> di 20 numeri interi (generati random da 1 a 90, 1 e 90 inclusi) e mostrare in pagina solo i numeri compresi tra 20 e 70
+    </h6>
+
+    @{
+        var numbers = new List<int>();
+        var random = new Random();
+
+        while (numbers.Count < 20)
+        {
+            int number = random.Next(1, 91);
+            if (number >= 20 && number <= 70)
+            {
+                numbers.Add(number);
+            }
+        }
+    }
+
+        @foreach (var number in numbers)
+        {
+            <h2 class="d-inline mx-2">@number</h2>
+        }
+ 
+    <!--===========================================================================================-->
+
+    <h6>
+        Stampare in pagina la data e l'ora attuale (usando la classe DateTime) con il formato anno-mese-giorno ore:minuti:secondi
+    </h6>
+
+    @{
+        var now = DateTime.Now;
+        var xDateTime = now.ToString("yyyy-MM-dd HH:mm:ss");
+    }
+
+    <h2>La data e l'ora attuale sono: @xDateTime</h2>
+
+    <!--===========================================================================================-->
+
+    <h6>
+        Partendo dalla data di oggi (usando la classe DateTime) stampare in pagina<br />
+        a. la data di 7 giorni fa<br />
+        b. che giorno della settimana è oggi (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...)<br />
+        c. che giorno della settimana sarà nello stesso giorno e mese di oggi ma tra un anno (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...)
+    </h6>
+
+    @{
+        var today = DateTime.Today;
+        var sevenDaysAgo = today.AddDays(-7);
+        var weekDayToday = today.ToString("dddd", System.Globalization.CultureInfo.CreateSpecificCulture("it-IT"));
+        var newYearWeekDay = today.AddYears(1).ToString("dddd", System.Globalization.CultureInfo.CreateSpecificCulture("it-IT"));
+    }
+
+    <h2>La data di 7 giorni fa era: @sevenDaysAgo</h2>
+    <h2>Oggi è: @weekDayToday</h2>
+    <h2>Il giorno della settimana nello stesso giorno e mese di oggi ma tra un anno sarà: @newYearWeekDay</h2>
+
+
+</div>
+
+
+
+
+
