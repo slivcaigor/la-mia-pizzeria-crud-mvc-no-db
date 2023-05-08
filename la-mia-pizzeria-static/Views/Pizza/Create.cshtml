@@ -1,24 +1,14 @@
 ﻿@{
     Layout = "_Layout";
-    ViewData["Title"] = "Add a new menu listing";
-    @model Listing
+    ViewData["Title"] = "Add a new pizza";
+    @model Pizza
 }
 
-<h1 class="text-center text-xl">Add a new @ViewData["Type"] listing</h1>
+<h1 class="text-center text-xl">Add a new pizza</h1>
 <div class="flex items-center justify-center p-12 max-w-screen-xl mx-auto">
     <div class="mx-auto w-full max-w-[550px]">
-        <form method="post" asp-controller="Create" asp-action="Create" asp-route-type="@ViewData["Type"]">
+        <form method="post" asp-controller="pizza" asp-action="create">
             @Html.AntiForgeryToken()
-            <div class="mb-5">
-                <label for="Id"
-                       class="mb-3 block text-base font-medium">
-                    Id
-                </label>
-                <input asp-for="Id"
-                       placeholder="Id"
-                       class="w-full rounded-md test-black border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium outline-none focus:border-[#6A64F1] focus:shadow-md" />
-                <span asp-validation-for="Id" class="text-red-500"></span>
-            </div>
             <div class="mb-5">
                 <label for="Name"
                        class="mb-3 block text-base font-medium ">

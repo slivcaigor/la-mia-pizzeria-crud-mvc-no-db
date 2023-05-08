@@ -1,0 +1,69 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Add a new pizza";
+    @model Pizza
+
+}
+
+<h1 class="text-center text-xl">Add a new pizza</h1>
+<div class="flex items-center justify-center p-12 max-w-screen-xl mx-auto">
+    <div class="mx-auto w-full max-w-[550px]">
+        <form method="post" asp-action="Update" asp-route-id="@Model.Id">
+            @Html.AntiForgeryToken()
+            <div class="mb-5">
+                <label for="Name"
+                       class="mb-3 block text-base font-medium ">
+                    Name
+                </label>
+                <input asp-for="Name"
+                       placeholder="Name"
+                       class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                <span asp-validation-for="Name" class="text-red-500"></span>
+            </div>
+            <div class="mb-5">
+                <label for="subject"
+                       class="mb-3 block text-base font-medium ">
+                    Image
+                </label>
+                <input asp-for="Image"
+                       placeholder="Image"
+                       class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                <span asp-validation-for="Image" class="text-red-500"></span>
+            </div>
+            <div class="mb-5">
+                <label for="Price"
+                       class="mb-3 block text-base font-medium ">
+                    Price
+                </label>
+                <input asp-for="Price"
+                       placeholder="Price"
+                       class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                <span asp-validation-for="Price" class="text-red-500"></span>
+            </div>
+            <div class="mb-5">
+                <label for="Description"
+                       class="mb-3 block text-base font-medium ">
+                    Description
+                </label>
+                <input asp-for="Description"
+                       placeholder="Description"
+                       class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                <span asp-validation-for="Description" class="text-red-500"></span>
+            </div>
+            <div class="mb-5">
+                <label for="subject"
+                       class="mb-3 block text-base font-medium ">
+                    IsNew
+                </label>
+                <input asp-for="IsNew"
+                       placeholder="IsNew"
+                       class="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                <span asp-validation-for="IsNew" class="text-red-500"></span>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary hover:opacity-100 rounded-full px-10 py-2 font-bold">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+
